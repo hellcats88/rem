@@ -12,7 +12,7 @@ type context struct {
 
 // NewContext creates new logger context from a correlation ID
 func NewContext(corrID string) logging.Context {
-	return context{
+	return &context{
 		corrID: corrID,
 	}
 }
@@ -20,7 +20,7 @@ func NewContext(corrID string) logging.Context {
 // NewContextUUID creates new logger context generating
 // a new correlation ID from UUID package
 func NewContextUUID() logging.Context {
-	return context{
+	return &context{
 		corrID: uuid.New().String(),
 	}
 }
@@ -31,13 +31,13 @@ func (ctx context) CorrID() string {
 }
 
 // CloneEmpty create a new independent context with the same original correlation ID without extra parameters
-func (ctx context) CloneEmpty() logging.Context {
+func (ctx context) CloneNoExtra() logging.Context {
 	return NewContext(ctx.CorrID())
 }
 
 // Clone create a new independent context with the same original correlation ID and extra parameters
 func (ctx context) Clone() logging.Context {
-	return context{
+	return &context{
 		corrID: ctx.corrID,
 		extra:  ctx.extra,
 	}

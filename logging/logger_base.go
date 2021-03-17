@@ -79,11 +79,11 @@ func (cns base) composeMessage(level string, ctx logging.Context, message string
 			msg += message
 
 		case logging.PartOrderExtra:
-			if len(ctx.GetExtras()) > 0 {
+			if len(ctx.Extras()) > 0 {
 				if msg != "" {
-					msg += ":" + cns.config.ExtraParametersPrefix + cns.config.ExtraParametersFormat(ctx.GetExtras())
+					msg += ":" + cns.config.ExtraParametersPrefix + cns.config.ExtraParametersFormat(ctx.Extras())
 				} else {
-					msg += cns.config.ExtraParametersPrefix + cns.config.ExtraParametersFormat(ctx.GetExtras())
+					msg += cns.config.ExtraParametersPrefix + cns.config.ExtraParametersFormat(ctx.Extras())
 				}
 			}
 
@@ -104,7 +104,7 @@ func (cns base) _print(ctx logging.Context, referenceLevel logging.Level, levelT
 				CorrelationID: ctx.CorrID(),
 				CurrentTime:   now,
 				Message:       fmt.Sprintf(msg, params...),
-				ExtraParams:   ctx.GetExtras(),
+				ExtraParams:   ctx.Extras(),
 			}))
 		} else {
 			cns.writeMessageCallback(referenceLevel, cns.composeMessage(levelText, ctx, fmt.Sprintf(msg, params...)))

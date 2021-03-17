@@ -6,6 +6,7 @@ import (
 	"github.com/hellcats88/abstracte/runtime"
 	"github.com/hellcats88/abstracte/storage"
 	"github.com/hellcats88/abstracte/tenant"
+	rem "github.com/hellcats88/rem/env"
 )
 
 // Context defines a runtime group of common information
@@ -38,7 +39,7 @@ func New(log logging.Context, tx storage.Transaction, tenant tenant.Context) run
 		log:    log,
 		tx:     tx,
 		tenant: tenant,
-		env:    env.New("Global"),
+		env:    rem.New("Global"),
 	}
 }
 
@@ -55,9 +56,9 @@ func NewWithEnv(log logging.Context, tx storage.Transaction, tenant tenant.Conte
 // New clones a context using new transaction
 func NewFromTx(from runtime.Context, tx storage.Transaction) runtime.Context {
 	return context{
-		log:    from.Log,
-		env:    from.Env,
+		log:    from.Log(),
+		env:    from.Env(),
 		tx:     tx,
-		tenant: from.Tenant,
+		tenant: from.Tenant(),
 	}
 }

@@ -2,3 +2,5 @@ github.com/google/uuid v1.2.0 h1:qJYtXnJRWmpe7m/3XlyhrsLrEURqHRM2kxzoxXqyUDs=
 github.com/google/uuid v1.2.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/hellcats88/abstracte v0.0.0-20210316171153-03194f76888c h1:Btt3speTs1aV8hXSz5bXBohWXZ8L+hbZ6i6lfD64yfY=
 github.com/hellcats88/abstracte v0.0.0-20210316171153-03194f76888c/go.mod h1:37JdHPR/3d1ng23oS/2VgSLrqbNvxaemu3EamORk6Nk=
+github.com/hellcats88/abstracte v0.0.0-20210317090049-e328175c5b65 h1:D78nwFsou/qCsFJ2NZl7cSXLspZR356/O9/lskoXmUc=
+github.com/hellcats88/abstracte v0.0.0-20210317090049-e328175c5b65/go.mod h1:37JdHPR/3d1ng23oS/2VgSLrqbNvxaemu3EamORk6Nk=
